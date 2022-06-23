@@ -1,4 +1,4 @@
-# bearer-auth# LAB - Class 401
+# LAB - Class 401
 
 ## Project: Basic Express Server
 
