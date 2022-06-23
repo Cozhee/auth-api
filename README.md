@@ -5,7 +5,7 @@
 ### Author: Cody Davis
 
 ### Problem Domain
-Setting up a basic express server to configure heroku deployment and to create tests for basic routes. Implemented with sequelize. Set up encryption and the use of jsonwebtokens. 
+Setting up a basic express server to configure heroku deployment and to create tests for basic routes. Implemented with sequelize. Set up encryption and the use of jsonwebtokens. Set up protected routes that will check a users permissions and capabilities before they are allowed to enter a route.
 
 ### Links and Resources
 - [Github](https://github.com/Cozhee/auth-api/pulls)
@@ -31,10 +31,12 @@ N/A
 - POST : `/signin`
 
 - Feature Two: Added route
-- GET: `/users`
-- GET: `/secret`
+- GET: `/:model/:id`
+- POST: `/:model/:id`
+- PUT: `/:model/:id`
+- DELETE: `/:model/:id`
 
-Each route will be using middleware to check if a user has basicAuth or bearerAuth included in these requests. These are protected routes which are unreachabled by un authenticated users.
+Each route will be using middleware to check if a user has basicAuth or bearerAuth included in these requests. These are protected routes which are unreachabled by un authenticated users. Also a permissions middleware that will check user capabilities.
 
 
 #### Tests
