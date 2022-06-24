@@ -43,3 +43,6 @@ Each route will be using middleware to check if a user has basicAuth or bearerAu
 To run tests type `npm test`. Server does not need to be running in another instance
 Basic tests that will check if routes are working correctly
 
+## UML
+![Screen Shot 2022-06-24 at 8 59 24 AM](https://user-images.githubusercontent.com/55909913/175573250-d0e435e7-fea6-496e-b5a6-2ba5189b241f.png)
+
