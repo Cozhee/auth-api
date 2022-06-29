@@ -19,40 +19,40 @@ afterAll(async () => {
 
 describe('Access Control Tests', () => {
 
-    test('Authorized to create', async () => {
+    test('Can create', async () => {
         const item = {
             name: "carrots",
             calories: 30,
             type: "vegetable"
         }
-        let response = await request.post('/food').send(item).set('Authorization', `Bearer ${testUser.token}`);
+        let response = await request.post('api/v1/food').send(item)
 
         expect(response.status).toEqual(201);
     });
 
-    test('Authorized to read', async () => {
-        let response = await request.get('/food').set('Authorization', `Basic Q29keTp0ZXN0cGFzc3dvcmQ=`);
+    test('Can read', async () => {
+        let response = await request.get('api/v1/food')
         expect(response.status).toEqual(200);
     });
 
-    test('Authorized to read by id', async () => {
-        let response = await request.get('/food/1').set('Authorization', `Basic Q29keTp0ZXN0cGFzc3dvcmQ=`);
+    test('Can read by id', async () => {
+        let response = await request.get('api/v1/food/1')
         expect(response.status).toEqual(200);
     });
 
-    test('Authorized to update', async () => {
+    test('Can update', async () => {
         const item = {
             name: "taco bell",
             calories: 1000,
             type: "protein"
         }
-        let response = await request.put('/food/1').send(item).set('Authorization', `Bearer ${testUser.token}`);
+        let response = await request.put('api/v1/food/1').send(item)
         expect(response.status).toEqual(403);
         expect(response.text).toEqual('Access Denied');
     });
 
-    test('Authorized to delete', async () => {
-        let response = await request.delete('/food/1').set('Authorization', `Bearer ${testUser.token}`);
+    test('Can delete', async () => {
+        let response = await request.delete('api/v1/food/1')
         expect(response.status).toEqual(403);
     });
 
